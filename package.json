@@ -15,9 +15,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "html-parse-string": "^0.0.9",
     "node-fetch": "2",
-    "node-html-parser": "^6.1.5",
-    "parseint": "^2.0.0"
+    "node-html-parser": "^6.1.5"
   }
 }
