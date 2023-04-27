@@ -10,8 +10,8 @@ const body = await parser.parse(data).querySelectorAll('img');
 console.log(body);
 
 const downloadImage = async (url, path) => {
-  const response = await fetch(url);
-  const blob = await response.blob();
+  const response1 = await fetch(url);
+  const blob = await response1.blob();
   const arrayBuffer = await blob.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
   await fs.writeFile(path, buffer);
