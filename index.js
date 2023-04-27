@@ -2,12 +2,19 @@ import { promises as fs } from 'node:fs';
 import fetch from 'node-fetch';
 import parser from 'node-html-parser';
 
+fs.mkdir('./memes', { recursive: true }, function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('New directory successfully created.');
+  }
+});
+
 const response = await fetch(
   'https://memegen-link-examples-upleveled.netlify.app/',
 );
 const data = await response.text();
 const body = await parser.parse(data).querySelectorAll('img');
-console.log(body);
 
 const downloadImage = async (url, path) => {
   const response1 = await fetch(url);
