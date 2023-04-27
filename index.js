@@ -7,6 +7,7 @@ const response = await fetch(
 );
 const data = await response.text();
 const body = await parser.parse(data).querySelectorAll('img');
+console.log(body);
 
 const downloadImage = async (url, path) => {
   const response = await fetch(url);
@@ -16,13 +17,12 @@ const downloadImage = async (url, path) => {
   await fs.writeFile(path, buffer);
 };
 
+const t = parser.parse(body).querySelectorAll('img').getAttribute('src');
+console.log(t);
 for (let i = 0; i <= 9; i++) {
   const images = body[i].getAttribute('src');
 
-  await downloadImage(
-    'https://api.memegen.link/images/bad/your_meme_is_bad/and_you_should_feel_bad.jpg',
-    './memes/02.jpg',
-  );
-}
+  const number = 0;
 
-// console.log(body[0].getAttribute('src'));
+  await downloadImage(images, `./memes/0${number + i}.jpg`);
+}
