@@ -17,8 +17,6 @@ const downloadImage = async (url, path) => {
   await fs.writeFile(path, buffer);
 };
 
-const t = parser.parse(body).querySelectorAll('img').getAttribute('src');
-console.log(t);
 for (let i = 0; i <= 9; i++) {
   const images = body[i].getAttribute('src');
 
