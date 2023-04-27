@@ -16,6 +16,10 @@ const response = await fetch(
 const data = await response.text();
 const body = await parser.parse(data).querySelectorAll('img');
 
+function formatNumber(n) {
+  return n > 9 ? '' + n : '0' + n;
+}
+
 const downloadImage = async (url, path) => {
   const response1 = await fetch(url);
   const blob = await response1.blob();
@@ -25,9 +29,7 @@ const downloadImage = async (url, path) => {
 };
 
 for (let i = 0; i <= 9; i++) {
-  const images = body[i].getAttribute('src');
+  const imageLink = body[i].getAttribute('src');
 
-  const number = 1;
-
-  await downloadImage(images, `./memes/0${number + i}.jpg`);
+  await downloadImage(imageLink, `./memes/${formatNumber(i + 1)}.jpg`);
 }
